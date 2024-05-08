@@ -15,19 +15,19 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "myTFResourceGroup"
-  location = "westus2"
+  name     = var.existent_resource_group_name
+  location = var.location
 }
 
 
-module "modulo_ejercicio_5" {
-  source                         = "./modules/modulo_ejercicio_5"
-  existent_resource_group_nombre = var.existent_resource_group_name
-  vnet_name                      = var.vnet_name
-  vnet_address_space             = var.vnet_address_space
-  owner_tag                      = var.owner_tag
-  environment_tag                = var.environment_tag
-}
+# module "modulo_ejercicio_5" {
+#   source                         = "./modules/modulo_ejercicio_5"
+#   existent_resource_group_nombre = var.existent_resource_group_name
+#   vnet_name                      = var.vnet_name
+#   vnet_address_space             = var.vnet_address_space
+#   owner_tag                      = var.owner_tag
+#   environment_tag                = var.environment_tag
+# }
 # #MODULO REMOTO
 # module "mi_modulo_remoto" {
 #   source                         = "git::https://github.com/stemdo-labs/terraforn-exercises-palonso.git//soluciones/soluciones_Pilar_Alonso/modulo_github/modules/mi_modulo_remoto"
@@ -40,14 +40,23 @@ module "modulo_ejercicio_5" {
 
 #PRUEBA DEL MODULO EJERCICIO 7
 
-module "modulo_ejercicio_7" {
-  source              = "./modules/modulo_ejercicio_7"
+# module "modulo_ejercicio_7" {
+#   source              = "./modules/modulo_ejercicio_7"
+#   resource_group_name = var.existent_resource_group_name
+#   location            = var.location
+#   vnet_name           = var.vnet_name
+#   vnet_address_space  = var.vnet_address_space
+
+# }
+module "modulo_ejercicio_8" {
+  source              = "./modules/modulo_ejercicio_8"
   resource_group_name = var.existent_resource_group_name
   location            = var.location
   vnet_name           = var.vnet_name
   vnet_address_space  = var.vnet_address_space
 
 }
+
 
 
 resource "azurerm_virtual_network" "example" {
