@@ -1,4 +1,5 @@
 existent_resource_group_name = "myTFResourceGroup"
+location            = "westeurope"
 vnet_name                    = "vnetpalonsotfexercise02"
 vnet_address_space           = ["10.0.0.0/16"]
 owner_tag                    = "pilarAlonsoSTEMDO"

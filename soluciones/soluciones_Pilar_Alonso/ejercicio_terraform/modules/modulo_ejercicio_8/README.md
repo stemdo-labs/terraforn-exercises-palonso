@@ -1,0 +1,1 @@
+Módulo Terraform para creacion de subnets y security groups y configuracion de blob storage
